@@ -1,0 +1,13 @@
+## Title: RHUM
+## Version: 0.0
+## Author: Fuefib
+## APIVersion: 100004
+## 
+
+## LIB
+LibStub/LibStub.lua
+libMsg/libMsg.lua
+
+## ADDON
+RHUM.lua
+RHUM.xml
