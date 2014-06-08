@@ -18,7 +18,14 @@
 						relativeTo="$(parent)" relativePoint="BOTTOMRIGHT"
 						text="RHUM">
 						<Anchor point="TOPLEFT" offsetX="4" offsetY="4"/>
-
+                </Label>
+				
+				<Label 	name="$(parent)Members" 
+						font="ZoFontGame" color="CFDCBD" 
+						text="">
+						<Anchor relativeTo="$(parent)Title" relativePoint="BOTTOMLEFT"
+							point="TOPLEFT" offsetX="0" offsetY="4"/>
+						
                 </Label>
 			</Controls>
 
