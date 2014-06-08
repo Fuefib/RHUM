@@ -29,9 +29,7 @@ end
 
 -- Recieve all the message for this code
 libMsg.receiveAllMsg = function (code)
-
 	local msgs = {}
-
 	local numReq = GetNumIncomingFriendRequests()
 
     libMsg.debug(tostring(numReq) .. " friend request(s) pending")
@@ -43,7 +41,8 @@ libMsg.receiveAllMsg = function (code)
 
         -- Only take request containing the code
         if(message:find(code .. libMsg.separator)) then
-        	--message = trim1(message)
+        	message = trim1(message)
+			message = message:gsub(code .. libMsg.separator, "")
         	libMsg.debug(name .. " sent " .. message)
         	msgs[name] = message
         end
@@ -69,7 +68,7 @@ end
 -- Clear all message
 libMsg.clearMsg = function (msgs)
 	for key,value in pairs(msgs) do 
-		RejectFriendRequest(keys)
+		RejectFriendRequest(key)
 	end
 end
 
