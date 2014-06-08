@@ -154,14 +154,16 @@ end
 
 -- Message handler : update the status of members
 RHUM.handleMessage = function (name, message)
-	local ulti , status = string.match(message, RHUM.regexp)
+	local ulti, status = string.match(message, RHUM.regexp)
 	
-	if(status == "true") then
-		RHUM.debug(name .. "'s ultimate [" .. ulti .. "] is UP ! (" .. status .. ")")
-		RHUM.membersStatus[name] = ulti
-	else
-		RHUM.debug(name .. "'s ultimate [" .. ulti .. "] no longer up (" .. status .. ")")
-		RHUM.membersStatus[name] = nil
+	if(ulti and status) then
+		if(status == "true") then
+			RHUM.debug(name .. "'s ultimate [" .. ulti .. "] is UP ! (" .. status .. ")")
+			RHUM.membersStatus[name] = ulti
+		else
+			RHUM.debug(name .. "'s ultimate [" .. ulti .. "] no longer up (" .. status .. ")")
+			RHUM.membersStatus[name] = nil
+		end
 	end
 end
 
